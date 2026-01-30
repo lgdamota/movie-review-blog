@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "movies": "Películas",
+    "series": "Series",
+    "about": "Acerca de"
+  },
+  "hero": {
+    "title": "Descubre Tu Próximo",
+    "subtitle": "Favorito para Ver",
+    "description": "Análisis reflexivas y perspectivas sobre las últimas películas y series de TV. Únete a nosotros en un viaje a través de la narrativa en su mejor forma."
+  },
+  "reviews": {
+    "latest": "Últimas Reseñas",
+    "latestDescription": "Perspectivas frescas sobre lanzamientos recientes",
+    "readTime": "min de lectura",
+    "by": "por"
+  },
+  "newsletter": {
+    "title": "Mantente al Día",
+    "description": "Recibe nuestras últimas reseñas y recomendaciones directamente en tu bandeja de entrada. Sin spam, solo contenido de calidad.",
+    "emailPlaceholder": "Ingresa tu correo electrónico",
+    "subscribe": "Suscribirse"
+  },
+  "footer": {
+    "description": "Análisis reflexivas y perspectivas sobre las últimas películas y series de TV.",
+    "rights": "Todos los derechos reservados."
+  },
+  "language": {
+    "pt": "PT",
+    "en": "EN",
+    "es": "ES"
+  }
+}

@@ -4,15 +4,18 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Film } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LanguageToggle } from "@/components/language-toggle";
+import { useTranslations } from '@/components/i18n-provider';
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Movies", href: "/movies" },
-  { name: "Series", href: "/series" },
-  { name: "About", href: "/about" },
+  { key: "home", href: "/" },
+  { key: "movies", href: "/movies" },
+  { key: "series", href: "/series" },
+  { key: "about", href: "/about" },
 ];
 
 export function Header() {
+  const { t } = useTranslations();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -33,13 +36,15 @@ export function Header() {
           <div className="hidden md:flex md:items-center md:gap-1">
             {navItems.map((item) => (
               <Link
-                key={item.name}
+                key={item.key}
                 href={item.href}
                 className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200"
               >
-                {item.name}
+                {t(`nav.${item.key}`)}
               </Link>
             ))}
+            <div className="mx-2 h-6 w-px bg-border" />
+            <LanguageToggle />
           </div>
 
           {/* Mobile Menu Button */}
@@ -64,12 +69,12 @@ export function Header() {
             <div className="flex flex-col gap-1">
               {navItems.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.key}
                   href={item.href}
                   className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.name}
+                  {t(`nav.${item.key}`)}
                 </Link>
               ))}
             </div>

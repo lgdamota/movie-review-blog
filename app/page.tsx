@@ -1,10 +1,14 @@
+"use client";
+
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FeaturedReview } from "@/components/featured-review";
 import { ReviewCard } from "@/components/review-card";
 import { getFeaturedReview, getLatestReviews } from "@/lib/data";
+import { useTranslations } from '@/components/i18n-provider';
 
 export default function HomePage() {
+  const { t } = useTranslations();
   const featured = getFeaturedReview();
   const latestReviews = getLatestReviews();
 
@@ -18,12 +22,11 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance leading-tight">
-                Discover Your Next
-                <span className="text-primary block mt-1">Favorite Watch</span>
+                {t('hero.title')}
+                <span className="text-primary block mt-1">{t('hero.subtitle')}</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
-                Thoughtful reviews and insights on the latest movies and TV
-                series. Join us on a journey through storytelling at its finest.
+                {t('hero.description')}
               </p>
             </div>
 
@@ -48,10 +51,10 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                  Latest Reviews
+                  {t('reviews.latest')}
                 </h2>
                 <p className="text-muted-foreground">
-                  Fresh perspectives on recent releases
+                  {t('reviews.latestDescription')}
                 </p>
               </div>
             </div>
@@ -78,23 +81,22 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-card rounded-3xl border border-border p-8 md:p-12 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Stay in the Loop
+                {t('newsletter.title')}
               </h2>
               <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                Get our latest reviews and recommendations delivered straight to
-                your inbox. No spam, just great content.
+                {t('newsletter.description')}
               </p>
               <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t('newsletter.emailPlaceholder')}
                   className="flex-1 px-4 py-3 rounded-xl bg-background border border-input text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                 />
                 <button
                   type="submit"
                   className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
                 >
-                  Subscribe
+                  {t('newsletter.subscribe')}
                 </button>
               </form>
             </div>

@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from "next";
 import { Playfair_Display, Lora } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { I18nProvider } from "@/components/i18n-provider";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -48,8 +49,10 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${lora.variable} font-sans antialiased`}
       >
-        {children}
-        <Analytics />
+        <I18nProvider>
+          {children}
+          <Analytics />
+        </I18nProvider>
       </body>
     </html>
   );

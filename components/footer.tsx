@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Film, Instagram, Twitter, Youtube } from "lucide-react";
+import { useTranslations } from '@/components/i18n-provider';
 
 export function Footer() {
+  const { t } = useTranslations();
+
   return (
     <footer className="bg-card border-t border-border mt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
@@ -17,9 +22,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-              Your cozy corner for thoughtful movie and TV series reviews.
-              Discover new favorites and revisit classics with fresh
-              perspectives.
+              {t('footer.description')}
             </p>
           </div>
 
@@ -27,13 +30,13 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              {["Home", "Movies", "Series", "About"].map((item) => (
+              {["home", "movies", "series", "about"].map((item) => (
                 <li key={item}>
                   <Link
-                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                    href={item === "home" ? "/" : `/${item}`}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {item}
+                    {t(`nav.${item}`)}
                   </Link>
                 </li>
               ))}
@@ -71,8 +74,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border">
           <p className="text-center text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Reel Reflections. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Reel Reflections. {t('footer.rights')}
           </p>
         </div>
       </div>
